@@ -31,7 +31,7 @@ Pull requests, suggestions, and issues are welcome.
 
 ## 📬 Contact
 
-For collaboration or feedback, reach out to us via [LinkedIn](https://www.linkedin.com/in/your-profile) or drop us an issue here.
+For collaboration or feedback, reach out to us via [LinkedIn](https://www.linkedin.com/in/piyushgrover87) or drop us an issue here.
 
 ---
 
