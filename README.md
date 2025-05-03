@@ -15,9 +15,9 @@ Agentic Mesh is building the foundational infrastructure for autonomous agents t
 ## 📚 Contents
 
 - [`whitepaper.md`](./whitepaper.md) — Core whitepaper text (markdown)
-- [`architecture/`](./architecture) — System architecture and flow diagrams
-- [`tokenomics/`](./tokenomics) — xGNT and xSRC design specs
-- [`roadmap/`](./roadmap) — Project milestones and release goals
+- [`architecture/`](./architecture) — System architecture and flow diagrams (Refer whitepaper.md for now)
+- [`tokenomics/`](./tokenomics) — xGNT and xSRC design specs (Refer whitepaper.md for now)
+- [`roadmap/`](./roadmap) — Project milestones and release goals (Refer whitepaper.md for now)
 - [`changelog.md`](./changelog.md) — Evolution of the protocol vision
 
 ---
