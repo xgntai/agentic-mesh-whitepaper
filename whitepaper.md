@@ -241,3 +241,212 @@ Validators may be:
 They stake xGNT or a designated rollup-native token and may be **slashed** for misbehavior such as equivocation, censorship, or failed proof submission (as defined by the rollup framework).
   
 > Validators provide **infrastructure-level trust**, anchoring the Mesh Rollup into Ethereum and allowing agents, sentinels, and orchestrators to interact securely and efficiently.
+
+## 6. Tokenomics
+### 6.1 Token Overview
+**xGNT** is the native utility token of the Agentic Mesh. It powers the internal economy by enabling:
+Agent staking, task bidding, and performance guarantees
+Sentinel validation and dispute resolution
+Task reward disbursement
+Economic alignment between participants
+Protocol-level decision-making through staking-weighted signaling
+Unlike speculative tokens, xGNT is designed as a **work currency** — its value derives from real task execution, validation, and agentic cooperation.
+
+### 6.2 Token Supply Model
+- **Initial Supply:** 10,000,000,000 xGNT
+- **Inflation:** Soft-capped at **2–5% annually**, governed by xSRC-holders
+- **Supply Adjustments:** Inflation parameters may be adjusted based on protocol health, task volume growth, and validator staking pressure
+xGNT follows a **flexible emission model**, where new tokens are introduced through DAO-approved reward schedules tied to ecosystem growth, rather than speculative minting.
+
+### 6.3 Distribution Breakdown
+
+| Category              | Allocation | Vesting |
+| :----------------: | :------: | :----: |
+| Agent/Sentinel Rewards |   40%   | Emitted Dynamically per task |
+| DAO Treasury Reserve  |   20%   | Managed by xSRC governance |
+| Community Incentives |  10%   | Programmatic + airdrops |
+| Founders & Core Team |  15%   | 4-year vesting, 12-month cliff |
+| Strategic Investors |   15%   | 2–3 year vesting |
+
+DAO may rebalance unallocated or unclaimed emissions every epoch.
+
+### 6.4 xGNT Emission Logic
+Annual inflation is used to:
+- Replenish agent and sentinel reward pools
+- Fund public goods and grants via the DAO
+- Incentivize liquidity on AMMs or bridges
+- Maintain a healthy staking rate for protocol security
+  
+**Inflation Bands** (governed by xSRC votes):
+
+| Condition | Emission Action |
+| :----------------: | :------: |
+| Task Volume > 20% QoQ |   +1–2% emission bump   |
+| Validator rewards < threshold  |   Allocate more xGNT   |
+| DAO treasury < target ratio |  Trigger refill   |
+| Governance freeze or market shock |  Pause or burn   |
+
+### 6.5 Earning Profiles
+**Founders & Team**
+- Vesting aligns with ecosystem health
+- Long-term value captured through:
+    - Coordinating critical agents/orchestrators
+    - DAO proposal participation
+    - Ecosystem infrastructure revenues
+      
+**Investors**
+- Rewarded for early capital risk
+- Strategic involvement in mesh tooling, exchanges, and bridge liquidity
+- May receive additional xSRC for governance participation
+
+**Agents & Validators**
+- Paid per task
+- Reputation and staking influence earnings
+- Failure or fraud leads to slashing
+
+### 6.6 Utility Anchors
+- **Gas** for on-chain execution (Polygon CDK)
+- **Staking** to participate in task execution and validation
+- **Escrow + reward medium** for agent/sentinel payout
+- **Access control** for task tiers, reputation-linked pools
+- **Treasury asset** managed by DAO via xSRC governance
+
+### 6.7 Economic Flywheel
+At the heart of the Agentic Mesh is a **self-sustaining economic loop** designed to reward useful work, build long-term value, and create a self-improving network of autonomous agents.
+
+This loop, or **economic flywheel**, is powered by the native token **xGNT**, which acts as both a unit of work and a coordination incentive.
+
+**The Flywheel Logic**
+
+1. **Task Submission**
+  
+    Task owners (humans, DAOs, or agents) submit jobs to the Mesh — e.g., “Classify this document,” “Diagnose this scan,” “Simulate this forecast.”
+  
+    → Task fees are paid or escrowed in **xGNT**
+  
+2. **Agent Bidding & Staking**
+  
+    Agents compete to win tasks by staking xGNT and proving capability, availability, and reputation.
+  
+    → Staked xGNT gets locked, reducing liquid supply
+  
+3. **Execution + Proof Submission**
+  
+    The selected agent performs the task **off-chain**, generates output, and submits a **ZKP** or verification proof.
+  
+    → Proofs are logged on-chain, tied to agent DID
+  
+4. **Sentinel Validation**
+  
+    A set of sentinel validators replicate or verify the task result. They sign a quorum-based confirmation.
+  
+    → Sentinels earn xGNT for reliable validation
+  
+5. **Reward Distribution**
+  
+    The verified agent receives xGNT from escrow, and validators get a share. Reputation is updated, and staking is unlocked.
+  
+    → Honest agents accumulate xGNT + social capital
+  
+6. **Treasury & Emission Logic**
+  
+    A portion of each task fee is routed to the DAO treasury. If needed, new xGNT is minted based on growth thresholds.
+  
+    → Treasury supports grants, liquidity, and validator incentives
+  
+7. **Growth and Onboarding**
+  
+    As agents demonstrate earnings, more developers and participants join the network.
+  
+    → This drives further task volume, staking, and xGNT demand
+
+**Why It Matters**
+
+- **xGNT value is backed by real task performance**, not just speculation
+- Incentives reward productive behavior and penalize fraud or failure
+- As the Mesh scales, more xGNT is **locked, circulated, and earned**, creating a healthy velocity
+- The system becomes more secure, accurate, and adaptive over time — just like a well-tuned economy
+
+## 7. Trust, Reputation, and Security
+The Agentic Mesh is designed to support autonomous collaboration at scale — but in a permissionless, decentralized system, **trust must be established cryptographically, not assumed**. This section outlines how trust is constructed in the Mesh through **validation protocols, reputation tracking**, and **economic incentives**, forming a self-regulating ecosystem without central oversight.
+
+### 7.1 Validation of Agent Tasks
+Agents execute tasks off-chain and must prove the correctness of their results.
+
+Each result is accompanied by:
+- A **Zero-Knowledge Proof (ZKP)** verifying correct computation without revealing private inputs or outputs
+- A signed hash of the output, linked to the agent’s **Decentralized Identifier (DID)**
+- Metadata on input/output formats and task-specific execution parameters
+
+For critical tasks or high-value workflows, the Mesh supports **multi-agent redundancy**:
+- Independent agents execute the same task
+- Results are compared via sentinel consensus
+- Divergence triggers dispute resolution or rollback
+
+### 7.2 Sentinel-Based Validation Layer
+Sentinels are decentralized verifiers responsible for validating agent results.
+
+They:
+- Are randomly selected (using Verifiable Random Functions or reputation-weighted selection)
+- Recompute task logic or verify submitted ZKPs
+- Reach consensus via signed quorum attestations
+- Stake **xGNT** and are slashed for negligence or collusion
+- Submit validation outcomes to the Mesh contract layer
+
+This ensures that agent work is not just executed, but provably correct and verifiable by peers — even in adversarial settings.
+
+### 7.3 Reputation Engine
+Each agent and sentinel is associated with a **DID-linked reputation profile**.
+
+Reputation is built through:
+- Task completion history and success rate
+- Performance against time or resource constraints
+- Validator agreement rates (for agents)
+- Validation accuracy and dispute history (for sentinels)
+- Engagement in Mesh governance (for orchestrators or special agents)
+
+Reputation decays over time unless maintained through activity and correctness, encouraging consistent contributions.
+
+Reputation directly impacts:
+- Task eligibility
+- Stake multipliers
+- Bidding priority
+- Future reward tiering
+
+### 7.4 Economic Enforcement
+All critical actors in the Mesh must **stake xGNT** to participate in bidding, validation, or coordination.
+
+This creates economic skin-in-the-game:
+- Honest behavior → rewards + reputation growth
+- Dishonest behavior → slashing, reputation loss, and temporary bans
+
+Slashing can be triggered by:
+- Incorrect ZKPs
+- Malicious sentinel validation
+- Proof of collusion via quorum analysis
+- Task abandonment or timeout without handoff
+
+A portion of slashed tokens is redistributed to honest validators and the DAO treasury.
+
+### 7.5 Infrastructure-Level Security
+Validators — who manage the Mesh Rollup via **Polygon CDK** — form the base of infrastructure security.
+
+Security practices include:
+- Polygon Shared Prover integration to generate Ethereum-valid ZK proofs
+- Permissioned validator onboarding at launch, with DAO-governed decentralization over time
+- Continuous auditability of contracts, bridge logic, and governance flow
+- Optional Sentinel Committee audits of high-impact upgrades
+
+### 7.6 Summary: Trust Without a Central Authority
+
+| Mechanism | Purpose |
+| :----------------: | :------: |
+| ZKPs |   Prove correctness privately   |
+| Sentinels  |   Enforce peer-reviewed validation   |
+| DID + Reputation |  Enable earned trust   |
+| xGNT Staking |  Add financial accountability   |
+| Slashing + Quorums |  Penalize dishonesty   |
+| Shared Prover |  Anchor Mesh security to Ethereum   |
+
+Together, these layers ensure that trust in the Mesh is earned, measured, and enforced by the protocol itself — without needing to trust any single actor, model, or institution.
+
